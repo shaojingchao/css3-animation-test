@@ -1,0 +1,207 @@
+body, html {
+  height: 100%;
+  background-color: #fff;
+}
+
+.box-3d-wrap {
+  display: inline-block;
+  width: 300px;
+  height: 350px;
+  .box-name {
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+.box-3d-content {
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  border: 1px solid #ddd;
+  transform-style: preserve-3d;
+  animation: box3d-x 10s infinite linear;
+  @size: 100px;
+  @perspective: @size * 0;
+
+  //轴
+  .axis{
+    display: block;
+    position:absolute;
+    width:100%;
+    top:50%;
+    height:15px;
+    line-height: 15px;
+    margin-top:-8px;
+    text-align: right;
+    &:after{
+      position: absolute;
+      content:'';
+      display: block;
+      width:80%;
+      height:1px;
+      left:10%;
+      top:8px;
+      background-color: #333;
+    }
+  }
+  .axis-x{
+    color:red;
+
+  }
+  .axis-y{
+    color:blue;
+    transform: rotateZ(90deg);
+  }
+  .axis-z{
+    color:green;
+    transform: rotateY(-90deg);
+  }
+  .face {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: @size;
+    height: @size;
+    opacity: 0.7;
+    font-size: 20px;
+    text-align: center;
+    line-height: @size;
+    //transform: perspective(500px);
+  }
+
+  .face-front {
+    background-color: crimson;
+    transform: perspective(@perspective) translateZ(@size/2);
+    &:after {
+      content: 'front';
+    }
+  }
+  .face-back {
+    background-color: coral;
+    transform: perspective(@perspective) translateZ(-@size/2);
+    &:after {
+      content: 'back';
+    }
+  }
+  .face-left {
+    background-color: goldenrod;
+    transform: perspective(@perspective) translateX(-@size/2) rotateY(90deg);
+    &:after {
+      content: 'left';
+    }
+  }
+  .face-right {
+    background-color: green;
+    transform: perspective(@perspective) translateX(@size/2) rotateY(90deg);
+    &:after {
+      content: 'right';
+    }
+  }
+  .face-top {
+    background-color: blue;
+    transform: perspective(@perspective) translateY(-@size/2) rotateX(90deg);
+    &:after {
+      content: 'top';
+    }
+  }
+  .face-bottom {
+    background-color: cyan;
+    transform: perspective(@perspective) translateY(@size/2) rotateX(90deg);
+    &:after {
+      content: 'bottom';
+    }
+  }
+}
+
+.box-3d-content-1 {
+  animation-name: box3d-x;
+}
+
+.box-3d-content-2 {
+  animation-name: box3d-y;
+}
+
+.box-3d-content-3 {
+  animation-name: box3d-z;
+}
+
+.box-3d-content-4 {
+  animation-name: box3d-x-y;
+}
+
+.box-3d-content-5 {
+  animation-name: box3d-x-z;
+}
+
+.box-3d-content-6 {
+  animation-name: box3d-y-z;
+}
+
+.box-3d-content-7 {
+  animation-name: box3d-x-y-z;
+}
+
+@keyframes box3d-x {
+  0% {
+    transform: perspective(900px) rotate3d(1, 0, 0, 0deg)
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 0, 0, 360deg)
+  }
+}
+
+@keyframes box3d-y {
+  0% {
+    transform: perspective(900px) rotate3d(0, 1, 0, 0deg)
+  }
+  100% {
+    transform: perspective(900px) rotate3d(0, 1, 0, 360deg)
+  }
+}
+
+@keyframes box3d-z {
+  0% {
+    transform: perspective(900px) rotate3d(0, 0, 1, 0deg)
+  }
+  100% {
+    transform: perspective(900px) rotate3d(0, 0, 1, 360deg)
+  }
+}
+
+@keyframes box3d-x-y {
+  0% {
+    transform: perspective(900px) rotate3d(1, 1, 0, 0deg)
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 1, 0, 360deg)
+  }
+}
+
+@keyframes box3d-x-z {
+  0% {
+    transform: perspective(900px) rotate3d(1, 0, 1, 0deg)
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 0, 1, 360deg)
+  }
+}
+
+@keyframes box3d-y-z {
+  0% {
+    transform: perspective(900px) rotate3d(0, 1, 1, 0deg)
+  }
+  100% {
+    transform: perspective(900px) rotate3d(0, 1, 1, 360deg)
+  }
+}
+
+@keyframes box3d-x-y-z {
+  0% {
+    transform: perspective(900px) rotate3d(1, 1, 1, 0deg)
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 1, 1, 360deg)
+  }
+}

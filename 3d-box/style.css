@@ -1,0 +1,185 @@
+body,
+html {
+  height: 100%;
+  background-color: #fff;
+}
+.box-3d-wrap {
+  display: inline-block;
+  width: 300px;
+  height: 350px;
+}
+.box-3d-wrap .box-name {
+  text-align: center;
+  font-size: 18px;
+}
+.box-3d-content {
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  border: 1px solid #ddd;
+  transform-style: preserve-3d;
+  animation: box3d-x 10s infinite linear;
+}
+.box-3d-content .axis {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  height: 15px;
+  line-height: 15px;
+  margin-top: -8px;
+  text-align: right;
+}
+.box-3d-content .axis:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 80%;
+  height: 1px;
+  left: 10%;
+  top: 8px;
+  background-color: #333;
+}
+.box-3d-content .axis-x {
+  color: red;
+}
+.box-3d-content .axis-y {
+  color: blue;
+  transform: rotateZ(90deg);
+}
+.box-3d-content .axis-z {
+  color: green;
+  transform: rotateY(-90deg);
+}
+.box-3d-content .face {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.7;
+  font-size: 20px;
+  text-align: center;
+  line-height: 100px;
+}
+.box-3d-content .face-front {
+  background-color: crimson;
+  transform: perspective(0px) translateZ(50px);
+}
+.box-3d-content .face-front:after {
+  content: 'front';
+}
+.box-3d-content .face-back {
+  background-color: coral;
+  transform: perspective(0px) translateZ(-50px);
+}
+.box-3d-content .face-back:after {
+  content: 'back';
+}
+.box-3d-content .face-left {
+  background-color: goldenrod;
+  transform: perspective(0px) translateX(-50px) rotateY(90deg);
+}
+.box-3d-content .face-left:after {
+  content: 'left';
+}
+.box-3d-content .face-right {
+  background-color: green;
+  transform: perspective(0px) translateX(50px) rotateY(90deg);
+}
+.box-3d-content .face-right:after {
+  content: 'right';
+}
+.box-3d-content .face-top {
+  background-color: blue;
+  transform: perspective(0px) translateY(-50px) rotateX(90deg);
+}
+.box-3d-content .face-top:after {
+  content: 'top';
+}
+.box-3d-content .face-bottom {
+  background-color: cyan;
+  transform: perspective(0px) translateY(50px) rotateX(90deg);
+}
+.box-3d-content .face-bottom:after {
+  content: 'bottom';
+}
+.box-3d-content-1 {
+  animation-name: box3d-x;
+}
+.box-3d-content-2 {
+  animation-name: box3d-y;
+}
+.box-3d-content-3 {
+  animation-name: box3d-z;
+}
+.box-3d-content-4 {
+  animation-name: box3d-x-y;
+}
+.box-3d-content-5 {
+  animation-name: box3d-x-z;
+}
+.box-3d-content-6 {
+  animation-name: box3d-y-z;
+}
+.box-3d-content-7 {
+  animation-name: box3d-x-y-z;
+}
+@keyframes box3d-x {
+  0% {
+    transform: perspective(900px) rotate3d(1, 0, 0, 0deg);
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 0, 0, 360deg);
+  }
+}
+@keyframes box3d-y {
+  0% {
+    transform: perspective(900px) rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    transform: perspective(900px) rotate3d(0, 1, 0, 360deg);
+  }
+}
+@keyframes box3d-z {
+  0% {
+    transform: perspective(900px) rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: perspective(900px) rotate3d(0, 0, 1, 360deg);
+  }
+}
+@keyframes box3d-x-y {
+  0% {
+    transform: perspective(900px) rotate3d(1, 1, 0, 0deg);
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 1, 0, 360deg);
+  }
+}
+@keyframes box3d-x-z {
+  0% {
+    transform: perspective(900px) rotate3d(1, 0, 1, 0deg);
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 0, 1, 360deg);
+  }
+}
+@keyframes box3d-y-z {
+  0% {
+    transform: perspective(900px) rotate3d(0, 1, 1, 0deg);
+  }
+  100% {
+    transform: perspective(900px) rotate3d(0, 1, 1, 360deg);
+  }
+}
+@keyframes box3d-x-y-z {
+  0% {
+    transform: perspective(900px) rotate3d(1, 1, 1, 0deg);
+  }
+  100% {
+    transform: perspective(900px) rotate3d(1, 1, 1, 360deg);
+  }
+}
